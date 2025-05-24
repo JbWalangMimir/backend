@@ -8,7 +8,7 @@ app = FastAPI(title="orkidAsIyey Image Classifier")
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500/index.html"],  # Adjust this to your frontend URL in production
+    allow_origins=["http://127.0.0.1:5500/"],  # Adjust this to your frontend URL in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
