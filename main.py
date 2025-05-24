@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from model import EfficientNetModel
 import os
 
-from fastapi.middleware.cors import CORSMiddleware
+app = FastAPI(title="orkidAsIyey Image Classifier")
 
 app.add_middleware(
     CORSMiddleware,
