@@ -7,12 +7,11 @@ app = FastAPI(title="orkidAsIyey Image Classifier")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],  # ✅ correct origin
+    allow_origins=["http://127.0.0.1:5500"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # Load model
 MODEL_PATH = "efficientnet_model1.keras"
@@ -25,7 +24,7 @@ model = EfficientNetModel(MODEL_PATH)
 async def predict(file: UploadFile = File(...)):
     if not file.content_type.startswith('image/'):
         raise HTTPException(status_code=400, detail="File must be an image")
-    
+
     contents = await file.read()
     try:
         predictions = model.predict_top5(contents)
@@ -36,3 +35,8 @@ async def predict(file: UploadFile = File(...)):
 @app.get("/")
 def read_root():
     return {"message": "EfficientNet Classifier API is running"}
+
+# ✅ Add this route to test CORS from the frontend
+@app.get("/test-cors")
+def test_cors():
+    return {"message": "CORS is working"}
