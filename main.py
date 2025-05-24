@@ -3,16 +3,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from model import EfficientNetModel
 import os
 
-app = FastAPI(title="orkidAsIyey Image Classifier")
+from fastapi.middleware.cors import CORSMiddleware
 
-# Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500/"],  # Adjust this to your frontend URL in production
+    allow_origins=["http://127.0.0.1:5500"],  # ✅ correct origin
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Load model
 MODEL_PATH = "efficientnet_model1.keras"
