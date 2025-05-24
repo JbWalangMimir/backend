@@ -3,6 +3,12 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 from PIL import Image
 import io
+from tensorflow.keras.applications.efficientnet import preprocess_input
+
+...
+
+img_array = preprocess_input(img_array)
+
 
 class EfficientNetModel:
     def __init__(self, model_path):
