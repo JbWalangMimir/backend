@@ -7,7 +7,10 @@ app = FastAPI(title="orkidAsIyey Image Classifier")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://orkidasiyey.com"],
+    allow_origins=[
+        "https://orkidasiyey.com",         
+        "http://127.0.0.1:5500"            
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
